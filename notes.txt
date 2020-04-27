@@ -1,0 +1,50 @@
+document.querySelector('body') anything you can put in a css selector you can put in querySelector
+document.querySelectorAll ('p') targets all nodes with the selector. The previous method selects the first from top
+
+Modify an element: 
+    do
+    document.querySelector('p').innterText = "Hello" 
+
+    document.querySelector('p').innterHTML = <code>HEllo</code> can change the innterHTML
+
+
+
+Add new node: 
+
+    let newListItem = document.createElement('li')
+
+    newListItem.innerText = 'Celebreate !' 
+
+    let ol = document.querySelector('ol')
+
+    ol.appendChild(newListItem)
+
+
+Styling DOM elements:
+
+    newListItem.style.color = 'red' (not recommended because it overrides everything with it's specificity)
+
+    document.querySelector('p').classList.add('big-text') (big-text is an existag class that is injected)
+
+    .toggle is like .add but it toggles on and off
+
+    node.setAttribute('id', 'green-box' ) takes two arguments. First is what it targets and second is value.
+
+JS FUNDAMENTALS: Timing and delay !
+
+    window.setTimeout(function(){},2000) it takes a function and a time and it does it after that time
+
+    window.setInterval(function(){}, 2000) it runs the function at the set interval of time
+
+    window.clearInterval(intervalId) stops the interval
+
+
+    const main = document.createELement('main')
+
+    document.body.appendChild(main)
+
+    const headingText = "alaksjflksjflsk"
+
+    
+    
+

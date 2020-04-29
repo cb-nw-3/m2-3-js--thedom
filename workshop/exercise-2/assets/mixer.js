@@ -24,8 +24,13 @@ for (let i = 0; i < FROGSONSCREEN.length; i++) {
 
   RACERS[i].progress = 0;
 }
-console.log(RACERS);
-console.log(FROGSONSCREEN);
+console.table(RACERS);
+const TAGS = MAIN.querySelectorAll('p');
+for (let j = 0; j < LANES.length; j++) {
+  TAGS[j].innerHTML = `Racer name: ${RACERS[j].name} Racer Number:${RACERS[j].number}`
+}
+
+// console.log(FROGSONSCREEN);
 function racingFrog(frog) {
   let ramdonSpeed = Math.floor(Math.random() * 3) + 1;
   frog.progress += ramdonSpeed;
@@ -39,11 +44,16 @@ var myRace = setInterval(myLap, 250);
 function myLap() {
   for (let i = 0; i < RACERS.length; i++) {
     racingFrog(RACERS[i]);
-    console.log(RACERS[i].progress);
+    // console.log(RACERS[i].progress);
     if (RACERS[i].progress === 100) {
       clearInterval(myRace);
     }
     FROGSONSCREEN[i].style.left = `${RACERS[i].progress}%`;
+    if (RACERS[i].progress === 100) {
+      FROGSONSCREEN[i].style.transform = 'scale(1.5)';
+      break;
+    }
   }
-  // alert('Hello');
+
 }
+

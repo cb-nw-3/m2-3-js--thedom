@@ -8,6 +8,7 @@ const CSS = document.createElement('link');
 const FILE = document.createElement('script');
 const MAIN = document.querySelector('main');
 
+
 // nice to have
 HEAD.querySelector('title').innerHTML = 'AR-Exercise 2';
 
@@ -31,6 +32,12 @@ for (let i = 1; i <= FROGS; i++) {
   const TRACK = document.createElement('li');
   MAIN.querySelector('ol').appendChild(TRACK);
   TRACK.innerHTML = `<span>${i}</span>`;
+}
+
+const LI = MAIN.querySelectorAll('li');
+for (let i = 0; i < FROGS; i++) {
+  const LABEL = document.createElement('p');
+  LI[i].appendChild(LABEL);
 }
 
 // 4. Assign an id to each lane

@@ -1,36 +1,47 @@
 import { frogStable } from './frogStable.js';
-console.log(frogStable);
 // console.log(`hello I'm the mixer`);
 
 function pickARamdonFrog() {
   let index = [];
   let ramdonIndex = 0;
   while (index.length < FROGS) {
-    console.log('index length', index.length);
     ramdonIndex = Math.floor(Math.random() * 4);
-    console.log('Ramdon Index is:', ramdonIndex);
-    if (index.length === 0) {
+    if (!index.includes(ramdonIndex)) {
       index.push(ramdonIndex);
-    } else {
-      let notInIndex = true;
-      for (let i = 0; i < index.length; i++) {
-        console.log('Filter', index[i], ramdonIndex);
-        if (index[i] === ramdonIndex) {
-          notInIndex = false;
-        } else {
-          index.push(ramdonIndex);
-        }
-        console.log('Result after if', index);
-      }
     }
-    console.log('index after pushing:', index.length);
   }
-
-  let frogsArray = [];
-  console.log('Index is:', index);
-  // index.forEach((element) => frogsArray.push(frogStable[elemet]));
-  // return frogsArray;
+  let racers = index.map((element) => frogStable[element]);
+  return racers;
 }
 
-const RACERS = pickARamdonFrog();
-// console.log(RACERS);
+let RACERS = pickARamdonFrog();
+
+const FROGSONSCREEN = document.querySelectorAll('img');
+for (let i = 0; i < FROGSONSCREEN.length; i++) {
+  FROGSONSCREEN[i].style.background = RACERS[i].color;
+  RACERS[i].progress = 0;
+}
+console.log(RACERS);
+
+function racingFrog(frog) {
+  let ramdonSpeed = Math.floor(Math.random() * 7) + 1;
+  frog.progress += ramdonSpeed;
+  if (frog.progress >= 100) {
+    frog.progress = 100;
+  }
+}
+
+var myRace = setInterval(myLap, 500);
+
+function myLap() {
+  for (let i = 0; i < RACERS.length; i++) {
+    racingFrog(RACERS[i]);
+    // console.log(RACERS[i].progress);
+    if (RACERS[i].progress === 100) {
+      clearInterval(myRace);
+      // console.log("I'm here!!");
+    }
+    FROGSONSCREEN[i].style.left = `${RACERS[i].progress}%`;
+  }
+  // alert('Hello');
+}

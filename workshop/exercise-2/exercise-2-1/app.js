@@ -3,11 +3,9 @@ console.log('apps loaded');
 // Preset values
 const FROGS = 3;
 const HEAD = document.querySelector('head');
-const MAINSCRIPT = document.querySelector('script');
 const ICON = document.createElement('link');
 const CSS = document.createElement('link');
 const FILE = document.createElement('script');
-const FRAME = document.createElement('div');
 const MAIN = document.querySelector('main');
 
 // nice to have
@@ -44,30 +42,3 @@ for (let j = 0; j < LANES.length; j++) {
   FROG.classList.add('frog');
   LANES[j].appendChild(FROG);
 }
-
-function pickARamdonFrog() {
-  let index = [];
-  let ramdonIndex = 0;
-  while (index.length < FROGS) {
-    ramdonIndex = Math.floor(Math.random() * 4);
-    if (index.length === 0) {
-      index.push(ramdonIndex);
-    } else {
-      let notInIndex = true;
-      for (let i = 0; i < index.length; i++) {
-        if (index[i] === ramdonIndex) {
-          notInIndex = false;
-        } else {
-          index.push(ramdonIndex);
-        }
-      }
-    }
-  }
-  // let frogsArray = [];
-  // console.table(window.frogStable);
-  // index.forEach((element) => frogsArray.push(frogStable[elemet]));
-  // return frogsArray;
-}
-
-// console.table(frogStable);
-let racers = pickARamdonFrog();

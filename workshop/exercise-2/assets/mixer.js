@@ -19,7 +19,7 @@ let RACERS = pickARamdonFrog();
 const FROGSONSCREEN = document.querySelectorAll('img');
 for (let i = 0; i < FROGSONSCREEN.length; i++) {
   FROGSONSCREEN[i].style.background = RACERS[i].color;
-  FROGSONSCREEN[i].style.transition = 'left 0.5s cubic-bezier(0.1, 0.7, 1.0, 0.1)';
+  FROGSONSCREEN[i].style.transition = 'left 0.5s cubic-bezier(0.1, 2.7, 0.58, 1)';
   FROGSONSCREEN[i].style.transform = 'rotate(90deg)';
 
   RACERS[i].progress = 0;
@@ -27,22 +27,21 @@ for (let i = 0; i < FROGSONSCREEN.length; i++) {
 console.log(RACERS);
 console.log(FROGSONSCREEN);
 function racingFrog(frog) {
-  let ramdonSpeed = Math.floor(Math.random() * 7) + 1;
+  let ramdonSpeed = Math.floor(Math.random() * 3) + 1;
   frog.progress += ramdonSpeed;
   if (frog.progress >= 100) {
     frog.progress = 100;
   }
 }
 
-var myRace = setInterval(myLap, 500);
+var myRace = setInterval(myLap, 250);
 
 function myLap() {
   for (let i = 0; i < RACERS.length; i++) {
     racingFrog(RACERS[i]);
-    // console.log(RACERS[i].progress);
+    console.log(RACERS[i].progress);
     if (RACERS[i].progress === 100) {
       clearInterval(myRace);
-      // console.log("I'm here!!");
     }
     FROGSONSCREEN[i].style.left = `${RACERS[i].progress}%`;
   }

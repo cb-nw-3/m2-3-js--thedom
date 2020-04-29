@@ -1,11 +1,15 @@
+console.log('apps loaded');
+
 // Preset values
 const FROGS = 3;
 const HEAD = document.querySelector('head');
+const MAINSCRIPT = document.querySelector('script');
 const ICON = document.createElement('link');
 const CSS = document.createElement('link');
 const FILE = document.createElement('script');
 const FRAME = document.createElement('div');
 const MAIN = document.querySelector('main');
+
 // nice to have
 HEAD.querySelector('title').innerHTML = 'AR-Exercise 2';
 
@@ -14,7 +18,8 @@ ICON.href = '../assets/frogx50.png';
 ICON.type = 'image/x-icon';
 CSS.rel = 'stylesheet';
 CSS.href = '../assets/styles.css';
-FILE.src = '../assets/frogStable.js';
+FILE.type = 'module';
+FILE.src = '../assets/mixer.js';
 
 HEAD.appendChild(ICON);
 HEAD.appendChild(CSS);
@@ -58,11 +63,11 @@ function pickARamdonFrog() {
       }
     }
   }
-  let frogsArray = [];
-  console.table(window.frogStable);
+  // let frogsArray = [];
+  // console.table(window.frogStable);
   // index.forEach((element) => frogsArray.push(frogStable[elemet]));
   // return frogsArray;
 }
 
-console.table(frogStable);
+// console.table(frogStable);
 let racers = pickARamdonFrog();

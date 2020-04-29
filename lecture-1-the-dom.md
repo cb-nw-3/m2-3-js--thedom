@@ -1,6 +1,6 @@
 # 2.3.1 - The DOM
 
----
+## test
 
 When you load a web page in the browser...
 
@@ -125,9 +125,9 @@ We can style elements from JavaScript.
 `<div id="my-div">...content...</div>`
 
 ```js
-const myDiv = document.querySelector('#my-div');
+const myDiv = document.querySelector("#my-div");
 
-myDiv.style.background = 'purple';
+myDiv.style.background = "purple";
 ```
 
 ---
@@ -159,11 +159,11 @@ To modify a `classList`, we have a few methods we can call.
 
 ```js
 // Example
-myDiv.classList.add('primary');
+myDiv.classList.add("primary");
 
-myDiv.classList.remove('secondary');
+myDiv.classList.remove("secondary");
 
-myDiv.classList.toggle('active');
+myDiv.classList.toggle("active");
 ```
 
 ---

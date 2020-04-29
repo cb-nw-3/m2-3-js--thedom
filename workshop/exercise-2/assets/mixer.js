@@ -27,7 +27,7 @@ for (let i = 0; i < FROGSONSCREEN.length; i++) {
 console.table(RACERS);
 const TAGS = MAIN.querySelectorAll('p');
 for (let j = 0; j < LANES.length; j++) {
-  TAGS[j].innerHTML = `Racer name: ${RACERS[j].name} Racer Number:${RACERS[j].number}`
+  TAGS[j].innerHTML = `Racer name: ${RACERS[j].name}  -  Racer Number:${RACERS[j].number}`
 }
 
 // console.log(FROGSONSCREEN);

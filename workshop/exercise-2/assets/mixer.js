@@ -19,10 +19,13 @@ let RACERS = pickARamdonFrog();
 const FROGSONSCREEN = document.querySelectorAll('img');
 for (let i = 0; i < FROGSONSCREEN.length; i++) {
   FROGSONSCREEN[i].style.background = RACERS[i].color;
+  FROGSONSCREEN[i].style.transition = 'left 0.5s cubic-bezier(0.1, 0.7, 1.0, 0.1)';
+  FROGSONSCREEN[i].style.transform = 'rotate(90deg)';
+
   RACERS[i].progress = 0;
 }
 console.log(RACERS);
-
+console.log(FROGSONSCREEN);
 function racingFrog(frog) {
   let ramdonSpeed = Math.floor(Math.random() * 7) + 1;
   frog.progress += ramdonSpeed;

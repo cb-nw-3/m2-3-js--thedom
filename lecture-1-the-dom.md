@@ -1,6 +1,6 @@
 # 2.3.1 - The DOM
 
-## test
+##
 
 When you load a web page in the browser...
 
@@ -173,3 +173,121 @@ myDiv.classList.toggle("active");
 ---
 
 [`node.setAttribute`](https://www.w3schools.com/jsref/met_element_setattribute.asp) lets you change any HTML attribute.
+
+---
+
+---
+
+---
+
+---
+
+---
+
+# Lecture april 29 2020.
+
+# CLI Tips and Definitions
+
+import mdxTheme from ‘../theme’;
+export const theme = mdxTheme;
+
+# Command Line Interface
+
+[object Object]
+We’ve been using the command line for a little while now.
+
+Let’s develop some context.
+
+[object Object]
+
+# What is Bash?
+
+Two things:
+
+1. An environment to run commands
+2. A programming language
+
+[object Object]
+The Bash shell lets us run commands.
+
+\$ cd some-project
+
+```
+
+
+$ git clone https://github.com/some-project
+```
+
+[object Object]
+Bash can also be used for programming - it has things like if/else statements!
+
+It’s not a very nice language though. We won’t be learning it.
+
+[object Object]
+
+# What is Zsh?
+
+Zsh is an _alternative to Bash_.
+
+Every Mac and Linux computer comes with either Bash or Zsh pre-installed as the default “terminal environment”.
+
+[object Object]
+In the past, it was quite a bit different. Over the years, the two have converged.
+
+Nowadays there is very little difference.
+
+[object Object]
+None of the things we’ve seen change depending on whether you use Bash or Zsh
+
+Differences include autocompletion, advanced configuration options.
+
+[object Object]
+
+# What is Node?
+
+Node is a _javascript runtime_. It’s a Javascript engine, much like the one that is built into the browser.
+
+[object Object]
+Node can be launched through Bash/Zsh:
+
+\$ node
+
+```
+
+[object Object]
+This is an _interactive environment_ similar to the Chrome developer tools (like what I use in lecture).
+
+It is not identical though. For example: `window`.
+
+[object Object]
+When you launch Node, you stop being in Bash. You’ve switched environments.
+
+[object Object]
+Node is an _active process_. It runs until you quit it. You can press `CTRL+C` to quit.
+
+[object Object]
+Node can also be used to _run scripts_.
+
+
+$ node exercise-1.js
+```
+
+[object Object]
+Think of this as:
+
+- Opening `node`
+- Copy/pasting the contents of the file into the JS environment
+- Quitting `node`
+
+[object Object]
+
+## Recommended workflow
+
+[object Object]
+Most of the time, you should use Node to run scripts (`node my-script.js`). Re-run the script whenever you make a change to see the new result.
+
+[object Object]
+If you want to play with an idea, or experiment, or see what an expression evaluates to, an interactive environment (`node`) is useful.
+
+[object Object]
+Any questions?

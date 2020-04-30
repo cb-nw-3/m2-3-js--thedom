@@ -37,10 +37,11 @@ h1 {
 }
 
 section {
-  height: 300px;
+  height: 325px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  flex-direction: column;
   margin: 0 86px 50px 36px;
   background-color: #F5F5DC;
   border-radius: 15px;
@@ -48,25 +49,18 @@ section {
 }
 .podium {
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: flex-end;
   flex: 1;
   height: 300px;
 }
-.winner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 48px;
-  flex: 1;
-  height: 300px;
-
-}
 .gold, .silver, .bronze {
-  width: 150px;
+  width: 20%;
   display: flex;
   justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
 }
 .gold {
   height: 200px;
@@ -82,12 +76,14 @@ section {
 }
 
 button {
-  width: 200px;
+  justify-content: center;
+  width: 100%;
   height: 75px;
   font-size: 24px;
-  display: block;
-  margin: 0 auto;
+  display: flex;
   border: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   background-color: #f44336;
   color: white;
   opacity: 0.6;
@@ -95,13 +91,14 @@ button {
 }
 button:hover {
   opacity: 1;
-  transform: scale(1.2);
   cursor: pointer;
 }
 button:focus {
   outline: none;
   opacity: 1;
-  transform: scale(1.2);
+}
+.buttons {
+  display: flex;
 }
 
 .length {

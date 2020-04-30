@@ -16,11 +16,6 @@ for (i = 1; i <= FROGS; i ++) {
   document.querySelector('ol').appendChild(li);
 }
 
-// let newScript = document.createElement('script');
-// newScript.src = '../assets/frogStable.js';
-// let body = document.querySelector('body');
-// body.insertBefore(newScript, body.childNodes[2]);
-
 // add stylesheet
 let stylesheet = document.createElement('link');
 let head = document.querySelector('head');
@@ -46,21 +41,43 @@ console.log(racers);
 // selects all lanes
 let liWithFrog = document.querySelectorAll('li');
 // loop through lanes 
-for (i = 0; i < 3; i++) {
+for (i = 0; i < FROGS; i++) {
   // create the frogs with div element
   let divFrog = document.createElement('div');
+  // get each lanes
+  let li = document.querySelector(`#lane-${i + 1}`);
   // initialize frog attributes
   divFrog.innerText = `${racers[i].number}`
   divFrog.className = 'frog';
   // append the frog to the lane
   liWithFrog[i].appendChild(divFrog);
-  // change the frog backgroundColor to the value in racers array
-  divFrog.style.backgroundColor = racers[i].color;
+  // change the lane backgroundColor to the value in racers array
+  li.style.backgroundColor = racers[i].color;
   // initialize the progress to 0
   racers[i].progress = 0;
 }
 
-console.log(liWithFrog);
+// insert three spans to update progress in the title
+for (let i = 0; i < FROGS; i++) {
+  // create span to hold each lane
+  let spanProgress = document.createElement('span');
+  // create span to hold progress
+  let spanTitle = document.createElement('span');
+  // get h1 element to insert all spans
+  let h1 = document.querySelector('h1');
+  // set progress ID
+  spanProgress.id = `frog-${i + 1}`;
+  // set progress innerText
+  spanProgress.innerText = `0%`;
+  // set lane id
+  spanTitle.id = `lane-${i + 1}`;
+  // set lane innerText
+  spanTitle.innerText = ` lane ${i + 1} : `;
+  // append span title to h1
+  h1.appendChild(spanTitle);
+  // append span progress to span title
+  spanTitle.appendChild(spanProgress);
+}
 
 function racingFrog(frogObjFromRacersArr, i) {
   // generate a random delay between 200 and 1000 ms
@@ -71,6 +88,8 @@ function racingFrog(frogObjFromRacersArr, i) {
   let divFrog = document.querySelector(`#lane-${i + 1} .frog`);
   // initialize progress
   let progress = frogObjFromRacersArr.progress;
+  // select span in title to update progress
+  let spanProgress = document.querySelector(`#frog-${i + 1}`);
   // log delays and distances for each frogs
   console.log('randomDelay', randomDelay, 'randomDist', randomDist)
   // start the intervals for each frog with a delay
@@ -79,18 +98,34 @@ function racingFrog(frogObjFromRacersArr, i) {
     progress += randomDist;
     // change the left property in css to make the frog move
     divFrog.style.left = Number(divFrog.style.left.replace('%', '')) + randomDist + '%';
+    // update progress in title
+    spanProgress.innerText = divFrog.style.left;
     // check if frog reached the end
     if (progress >= 100) {
       // close the interval
       clearInterval(interval);
       // change progress to be 100 flush
-      racers.progress = 100;
+      frogObjFromRacersArr.progress = 100;
       // change css property to make it exact
       divFrog.style.left = '100%';
+      // update title progress to be exact
+      spanProgress.innerText = divFrog.style.left;
+      // push each frog in the winners array
+      winnersArray.push(frogObjFromRacersArr);
     }
   }, randomDelay);
 }
+// initialize the winners array
+let winnersArray = [];
 // loop through racers array to activate the race
 for (let i = 0; i < racers.length; i++) {
   racingFrog(racers[i], i);
+}
+// log the winners when length is 3
+if (winnersArray.length === 3) {
+  // log the winners
+  console.log(winnersArray);
+  let gold = document.querySelector('.gold');
+  let silver = document.querySelector('.silver');
+  let bronze = document.querySelector('.bronze');
 }

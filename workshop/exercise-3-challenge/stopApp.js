@@ -1,5 +1,6 @@
 const STOPWATCHDIV = document.querySelector('#stopwatch');
 const MARKDIV = document.querySelector('#mark');
+const MARKDIV2 = document.querySelector('#mark2');
 
 function SecondsToTime(sec) {
   let minutes = '00';
@@ -23,13 +24,16 @@ function SecondsToTime(sec) {
   }
   return `${minutes}: ${seconds}: ${milisec} `;
 }
-let stopWatch = parseInt(localStorage.getItem('time'));
+let arrivalMark = parseInt(localStorage.getItem('time'));
+let stopWatch = arrivalMark;
 MARKDIV.innerHTML = SecondsToTime(stopWatch);
+
 // console.log('1', stopWatch);
 
 setInterval(function () {
   localStorage.setItem('time', stopWatch);
   STOPWATCHDIV.innerHTML = SecondsToTime(stopWatch);
+  MARKDIV2.innerHTML = SecondsToTime(stopWatch - arrivalMark);
   stopWatch += 100;
   // console.log('2.', stopWatch);
 }, 100);

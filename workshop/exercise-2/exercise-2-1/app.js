@@ -31,22 +31,30 @@ for (let i = 0; i < FROGS; i++) {
 for (i = 0; i < racers.length; i++) {
   let currentFrog = racers[i];
   let currentLane = document.querySelector(`#lane-${i}`);
+  let frogHtmlElement = document.createElement("span");
 
-  let frogNameTag = document.createElement("span");
-  frogNameTag.innerText = currentFrog.name;
-  currentLane.appendChild(frogNameTag);
-  frogNameTag.setAttribute("style", `background-color: ${currentFrog.color}`);
-
-  frogNameTag.classList.add("frog");
-  currentFrog.progress = 0;
-  // save the lane it's in to find the frog HTML element later
+  // add the lane it's in to find the frog HTML element later
   currentFrog.lane = currentLane;
+  // add the progress to track during the race
+  currentFrog.progress = 0;
+
+  // build the html visual component so we can see the frog
+  frogHtmlElement.classList.add("frog");
+  frogHtmlElement.innerText = currentFrog.name;
+  frogHtmlElement.setAttribute(
+    "style",
+    `background-color: ${currentFrog.color}`
+  );
+  //put the node in the tree
+  currentLane.appendChild(frogHtmlElement);
 }
 
 function racingFrog(frog) {
+  // random racing properties
   let jumpDistance = Math.floor(4 + Math.random() * Math.floor(12));
   let intervalTime = Math.floor(750 + Math.random() * Math.floor(1000));
 
+  //find this specific frog in order to move it during the race
   let thisFrogHTML = document.querySelector(`#${frog.lane.id} > .frog`);
 
   let frogIntervalID = setInterval(function () {
@@ -63,20 +71,7 @@ function racingFrog(frog) {
     } else {
       thisFrogHTML.style["left"] = `${frog.progress}%`;
     }
-
-    // if (Math.random() > 0.5) {
-    //   intervalTime = Math.round(intervalTime - intervalTime * 0.25);
-    // } else {
-    //   intervalTime = Math.round(intervalTime + intervalTime * 0.25);
-    // }
-    // console.log(intervalTime);
   }, intervalTime);
 }
 
-// const frog0 = document.querySelector("#lane-0 > .frog");
-// const frog1 = document.querySelector("#lane-1 > .frog");
-// const frog2 = document.querySelector("#lane-2 > .frog");
-
-racingFrog(racers[0]);
-racingFrog(racers[1]);
-racingFrog(racers[2]);
+racers.forEach(racingFrog);

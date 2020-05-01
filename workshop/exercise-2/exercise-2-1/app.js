@@ -65,6 +65,10 @@ function racingFrog (frogObject){
     
 
     let hopDistance = Math.round(Math.random()*trackLength)
+
+    if (hopDistance > trackLength/2){
+        hopDistance = hopDistance/4
+    }
     
 
     let hopInterval = setInterval(function (){
@@ -78,7 +82,7 @@ function racingFrog (frogObject){
             
         }
         document.querySelector(`#${frogObject.assignedLane} .frog`).style.left = `${progress}px`
-    }, (Math.random() * 5000))
+    }, (Math.random() * 2000))
     
 }
 

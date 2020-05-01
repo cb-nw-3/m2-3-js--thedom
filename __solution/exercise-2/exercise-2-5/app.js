@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 // Preset values
 const FROGS = 3;
 
@@ -38,6 +47,9 @@ racers.forEach(function (racer, id) {
   newFrog.style.background = racer.color;
   document.getElementById(`frog-${id + 1}`).appendChild(newFrog);
 
+
+
+
   // set their progress to 0
   // let's use the racers array for this.
   racers[id].progress = 0;
@@ -49,8 +61,10 @@ racers.forEach(function (racer, id) {
   document.getElementById(`frog-${id + 1}`).appendChild(frogProgress);
 });
 
+
 // (for Exercise 2.5)
 let ranking = [];
+
 
 // Exercise 2.4
 function racingFrog(racer) {

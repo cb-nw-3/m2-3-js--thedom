@@ -93,3 +93,87 @@ racers.forEach( racer => {
   console.log(newFroggy);
   document.getElementById(`lane-${racer.id}`).appendChild(newFroggy);
 })
+
+
+// ##########################################################################
+// ########################### Exercises 2.4 ################################
+// ##########################################################################
+let trackLength = track.offsetWidth;
+function racingFrog(frogRacer) {
+
+  //Returns a number from 0 to 1. We will use this to set the jump length a frog 
+  //takes relative to the length of the track
+  //formula returns a % increment of track length that the frog will jump by
+  let jump = Math.round((Math.random() * 100 / trackLength) * 100);
+  let progress = frogRacer.progress;
+  //.offsetWidth() returns the width of an HTML element, in this case its the <ol>
+
+  //Select Frog and give it its speed
+  // console.log(`Frog number ${frogRacer.number}'s speed is ${frogRacer.speed}! `)
+
+
+  //create a function to move the frog
+  function moveFrog() {
+    progress += jump;
+
+    if (progress > 100) {
+      //if the jump is above 100% of trackwidth, reset it back to the finish line
+      progress = 100;
+
+      //stop the setInterval() count
+      
+      console.log(`Frog number ${frogRacer.number} has finished!`);
+      
+    }
+
+    document.querySelector(`#lane-${frogRacer.id} .frog`).style.left =
+      `${progress}%`;
+
+    // console.log(progress);
+  }
+  
+  
+  //use setInterval() to control the hope of a frog.
+  //setInterval() requires a function() as the first argument, cannot do
+  //setInterval(moveFrog(), Math.random()*1000) because moveFrog() returns a
+  //value
+
+  let hop = setInterval(function() {
+    progress += jump;
+
+    if (progress > 100) {
+      //if the jump is above 100% of trackwidth, reset it back to the finish line
+      progress = 100;
+
+      //stop the setInterval() count
+      clearInterval(hop);
+      console.log(`Frog number ${frogRacer.number} has finished!`);
+      
+    }
+
+    document.querySelector(`#lane-${frogRacer.id} .frog`).style.left =
+      `${progress}%`;
+
+  }, Math.random()*1500);
+  
+}
+
+
+racers.forEach(racer => {
+  racingFrog(racer);
+})
+
+
+// console.log(racers);
+// console.log(racers[0]);
+
+//testing on how to move a frog, using style.left in %
+// document.querySelector(`#lane-${racers[0].id} .frog`).style.left = 
+//   `${racers[0].speed}%`;
+
+
+
+//Process
+//1. Select Frog
+//2. Adjust CSS for it to translateX()
+//3. Create setInterval to make this translation happen in hops

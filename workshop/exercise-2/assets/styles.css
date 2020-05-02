@@ -56,6 +56,6 @@ main {
   height: 50px;
   width: 50px;
   position: relative;
-  left: 0;
   transition: all ease-out 300ms;
+  left: 0;
 }

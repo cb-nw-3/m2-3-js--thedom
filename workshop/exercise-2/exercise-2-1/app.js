@@ -30,9 +30,18 @@ for(let i = 1; i <= FROGS; i++) {
 
 let racers = [];
 
+//Challenge 1, used a function to randomly sort the array order
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+  return array;
+}
+
+frogShuffled = shuffle(frogStable);
+console.log(frogShuffled);
+
 for(let i = 0; i < FROGS; i++) {
   // console.log(frogStable[i]);
-  racers[i] = frogStable[i];
+  racers[i] = frogShuffled[i];
   racers[i].progress = 0;
   racers[i].id = i+1;
 }
@@ -98,6 +107,10 @@ racers.forEach( racer => {
 // ##########################################################################
 // ########################### Exercises 2.4 ################################
 // ##########################################################################
+let ranking = []; // for 2.5
+
+  //.offsetWidth() returns the width of an HTML element, in this case its the <ol>
+
 let trackLength = track.offsetWidth;
 function racingFrog(frogRacer) {
 
@@ -106,33 +119,7 @@ function racingFrog(frogRacer) {
   //formula returns a % increment of track length that the frog will jump by
   let jump = Math.round((Math.random() * 100 / trackLength) * 100);
   let progress = frogRacer.progress;
-  //.offsetWidth() returns the width of an HTML element, in this case its the <ol>
 
-  //Select Frog and give it its speed
-  // console.log(`Frog number ${frogRacer.number}'s speed is ${frogRacer.speed}! `)
-
-
-  //create a function to move the frog
-  function moveFrog() {
-    progress += jump;
-
-    if (progress > 100) {
-      //if the jump is above 100% of trackwidth, reset it back to the finish line
-      progress = 100;
-
-      //stop the setInterval() count
-      
-      console.log(`Frog number ${frogRacer.number} has finished!`);
-      
-    }
-
-    document.querySelector(`#lane-${frogRacer.id} .frog`).style.left =
-      `${progress}%`;
-
-    // console.log(progress);
-  }
-  
-  
   //use setInterval() to control the hope of a frog.
   //setInterval() requires a function() as the first argument, cannot do
   //setInterval(moveFrog(), Math.random()*1000) because moveFrog() returns a
@@ -147,15 +134,21 @@ function racingFrog(frogRacer) {
 
       //stop the setInterval() count
       clearInterval(hop);
+
+      //print when frog finishes
       console.log(`Frog number ${frogRacer.number} has finished!`);
-      
+
+      //push winner into array
+      ranking.push(frogRacer);
+
+      //ex2.5
+      console.log(`${frogRacer.name} has rank ${ranking.length}!`);
     }
 
     document.querySelector(`#lane-${frogRacer.id} .frog`).style.left =
       `${progress}%`;
 
-  }, Math.random()*1500);
-  
+  }, Math.random()*1000);
 }
 
 
@@ -171,9 +164,13 @@ racers.forEach(racer => {
 // document.querySelector(`#lane-${racers[0].id} .frog`).style.left = 
 //   `${racers[0].speed}%`;
 
-
-
 //Process
 //1. Select Frog
 //2. Adjust CSS for it to translateX()
 //3. Create setInterval to make this translation happen in hops
+
+// ##########################################################################
+// ########################### Exercises 2.5 ################################
+// ##########################################################################
+
+//added the console log in the above code

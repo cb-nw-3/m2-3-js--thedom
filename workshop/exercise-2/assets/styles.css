@@ -59,3 +59,63 @@ main {
   left: 0;
   transition: all ease-out 300ms;
 }
+
+.wagering {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.current-gold {
+  color: gold;
+}
+
+.frogMoneyInputs {
+  display: flex;
+  justify-content: center;
+  padding-inline-start: 0px;
+}
+
+.frogMoneyInputs li {
+  margin-top: 20px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.betAmount {
+  line-height: 20px;
+  margin: 20px;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: white;
+  background-color: dodgerblue;
+  outline: none;
+  transition: 200ms ease-in-out;
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.btn-raceStart:active {
+  animation: buttonGrow 200ms;
+}
+
+@keyframes buttonGrow {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

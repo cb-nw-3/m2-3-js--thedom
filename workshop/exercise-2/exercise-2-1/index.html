@@ -8,6 +8,29 @@
     <main>
       <h1>The Great Frog Race</h1>
       <ol id="track" class="track"></ol>
+
+      <section class="wagering">
+        <div>Bet your hard-earned gold on a frog!</div>
+        <div>Current gold: <span class="current-gold">find_gold</span></div>
+        <form class="bets">
+          <ul class="frogMoneyInputs">
+            <li>
+              <label>Frog 1</label>
+              <input type="number" class="betAmount" id="frog0" min="0" />
+            </li>
+            <li>
+              <label>Frog 2</label>
+              <input type="number" class="betAmount" id="frog1" min="0" />
+            </li>
+            <li>
+              <label>Frog 3</label>
+              <input type="number" class="betAmount" id="frog2" min="0" />
+            </li>
+          </ul>
+        </form>
+        <button class="btn raceStart">Start Race</button>
+        <button class="btn raceReset disabled">Reset Race</button>
+      </section>
     </main>
     <script src="../assets/frogStable.js"></script>
     <script src="app.js"></script>

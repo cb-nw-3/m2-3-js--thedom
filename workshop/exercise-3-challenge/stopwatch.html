@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styleStop.css" />
+    <title>AR stopwatch</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <!--Solve favicon problem from audio.play() -->
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <a href="index.html">HOME</a>
+      <h1>Recorded lap time:</h1>
+      <p>
+        This is the time that took you to press the stopwatch button in the
+        index page
+      </p>
+      <div id="mark"></div>
+      <br />
+      <h2>Current accumulated time since all begun</h2>
+      <div id="stopwatch"></div>
+      <h2>Current accumulated time since you arrived to the stopwatch page</h2>
+      <div id="mark2"></div>
+    </div>
+  </body>
+
+  <script type="module" src="stopApp.js"></script>
+</html>

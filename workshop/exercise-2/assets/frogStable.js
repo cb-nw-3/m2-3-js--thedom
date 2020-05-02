@@ -1,4 +1,4 @@
-const frogStable = [
+export const frogStable = [
   {
     name: 'Hopper',
     color: 'blue',

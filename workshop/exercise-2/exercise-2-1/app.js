@@ -94,12 +94,24 @@ console.log(racers);
 // });
 
 
+// racers.forEach( racer => {
+//   let newFroggy = document.createElement('div');
+//   newFroggy.innerText = `${racer.number}`;
+//   newFroggy.setAttribute('class','frog');
+//   newFroggy.style.cssText = `background-color: ${racer.color}`;
+//   console.log(newFroggy);
+//   document.getElementById(`lane-${racer.id}`).appendChild(newFroggy);
+// })
+
+//Challenge 3, add random frogs and images.
 racers.forEach( racer => {
-  let newFroggy = document.createElement('div');
-  newFroggy.innerText = `${racer.number}`;
+  let newFroggy = document.createElement('img');
+  newFroggy.src = `../assets/frog.png`;
+
   newFroggy.setAttribute('class','frog');
-  newFroggy.style.cssText = `background-color: ${racer.color}`;
-  console.log(newFroggy);
+  newFroggy.style.cssText = `background-color: ${racer.color};
+    transform: rotate(90deg);width: 70px; height: 70px;`
+    console.log(newFroggy);
   document.getElementById(`lane-${racer.id}`).appendChild(newFroggy);
 })
 
@@ -147,6 +159,9 @@ function racingFrog(frogRacer) {
 
     document.querySelector(`#lane-${frogRacer.id} .frog`).style.left =
       `${progress}%`;
+
+    //challenge 3, pring each frogs process
+    console.log(`Frog number ${frogRacer.number} is at ${progress}%!`);
 
   }, Math.random()*1000);
 }

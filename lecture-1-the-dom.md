@@ -62,7 +62,11 @@ JavaScript can modify _all_ of the HTML elements on the page.
 
 You can access a single DOM node using [`document.querySelector()`](https://www.w3schools.com/jsref/met_document_queryselector.asp).
 
+In Chrome WebDevTool, \$('p') is equivalent
+
 This takes a CSS selector.
+
+For example "document.quetySelector('body')" to grab the body tag.
 
 ---
 
@@ -81,8 +85,11 @@ You can modify the content of a node with:
 - [`.innerText()`](https://www.w3schools.com/jsref/prop_node_innertext.asp)
 - [`.innerHTML()`](https://www.w3schools.com/jsref/prop_html_innerhtml.asp)
 
+innerText treats the input as a "string", use innerHTML to add tags.
+
 ```js
-// Example
+let para = document.querySelector("body");
+para.innerText = "Hello!";
 ```
 
 ---
@@ -103,7 +110,11 @@ To add a new node to an HTML page, you need to do it in 3 steps.
 - [`node.appendChild()`](https://www.w3schools.com/jsref/met_node_appendchild.asp)
 
 ```js
-// Example
+let newListItem = document.createElement("li");
+newListItem.innerText = "Hello";
+let ol = document.querySelector("ol");
+ol.appendChild(newListItem);
+"prepend" is to add in the beggining of the list
 ```
 
 ---
@@ -115,6 +126,9 @@ We can style elements from JavaScript.
 - Use the element's `style` attribute.
 - Modify the `classList` of the element.
 
+Example: newListItem.style.color ='red'(High sprficity, not recommended)\
+Example: document.querySelector('h3').style.background = 'red';
+
 ---
 
 #### The `style` attribute
@@ -125,9 +139,9 @@ We can style elements from JavaScript.
 `<div id="my-div">...content...</div>`
 
 ```js
-const myDiv = document.querySelector('#my-div');
+const myDiv = document.querySelector("#my-div");
 
-myDiv.style.background = 'purple';
+myDiv.style.background = "purple";
 ```
 
 ---
@@ -141,6 +155,14 @@ Inline styles are not ideal:
 
 #### Using `classList`
 
+To change all the p tag, we need to make a for loop.
+
+```js
+for (let i = 0; i < allPtags.length; i++) {
+  console.log(allPTags[i].classlist);
+}
+```
+
 Calling `myDiv.classList` returns a [`DOMTokenList`](https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList).
 
 😭 It is _read-only_, but ...
@@ -153,17 +175,17 @@ Calling `myDiv.classList` returns a [`DOMTokenList`](https://developer.mozilla.o
 
 To modify a `classList`, we have a few methods we can call.
 
-- `.add()`
+- `.add()`, this adds a pre-existing class
 - `.remove()`
-- `.toggle()`
+- `.toggle()` does the opposite, if added or removed a class.
 
 ```js
 // Example
-myDiv.classList.add('primary');
+myDiv.classList.add("primary");
 
-myDiv.classList.remove('secondary');
+myDiv.classList.remove("secondary");
 
-myDiv.classList.toggle('active');
+myDiv.classList.toggle("active");
 ```
 
 ---
@@ -173,3 +195,11 @@ myDiv.classList.toggle('active');
 ---
 
 [`node.setAttribute`](https://www.w3schools.com/jsref/met_element_setattribute.asp) lets you change any HTML attribute.
+Takes 2 arguments
+
+```js
+// Example
+let redBox = document.querySelector("#red-box");
+redBox.setAttribute('arial-label', ' A big red square looking nice';
+redBox.setAttribute('style', "width: 100px; height: 100px; background-color: green");
+```

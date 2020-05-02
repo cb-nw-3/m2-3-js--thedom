@@ -38,14 +38,13 @@ We need to assign each frog to a lane.
 
 ### Exercise 2.4 - Make 'em hop!
 
-1. Duplicate `📂 exercise-2-3` folder and name it `📂 exercise-2-4`
-2. Create a function called `racingFrog`. It will accept one parameter. This parameter will be a frog object from the racers array.
-3. We need to calculate a random distance for each hop the frog will make. Use `Math.random()` for this. It might be good to consider percentages here...
-4. Use `setInterval` to keep the frog hopping until the progress is greater than 100%. Remember to `clearInterval` once it reaches the end of the course.
-5. Write a message to the console, once the frog has reached the end.
-6. If you have ever seen a frog race, it isn't all that exciting. The frogs are generally not that motivated to reach the end... To that end, let's give each frog its own random delay time for the setInterval to simulate a frog waiting around between hops.
-7. "Why aren't they moving?!!" Examine the CSS file and determine what property you can modify to get them moving on the screen.
-8. Almost done! Now, call `racingFrog()` for each frog in the race.
+1. Create a function called `racingFrog`. It will accept one parameter. This parameter will be a frog object from the racers array.
+2. We need to calculate a random distance for each hop the frog will make. Use `Math.random()` for this. It might be good to consider percentages here...
+3. Use `setInterval` to keep the frog hopping until the progress is greater than 100%. Remember to `clearInterval` once it reaches the end of the course.
+4. Write a message to the console, once the frog has reached the end.
+5. If you have ever seen a frog race, it isn't all that exciting. The frogs are generally not that motivated to reach the end... To that end, let's give each frog its own random delay time for the setInterval to simulate a frog waiting around between hops.
+6. "Why aren't they moving?!!" Examine the CSS file and determine what property you can modify to get them moving on the screen.
+7. Almost done! Now, call `racingFrog()` for each frog in the race.
 
 ### Exercise 2.5 - And the Winner is...
 

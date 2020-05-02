@@ -15,8 +15,7 @@ main {
   padding: 4px 32px 32px;
 }
 
-h1,
-h2 {
+h1, h2 {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 }

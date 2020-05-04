@@ -59,3 +59,10 @@ main {
   left: 0;
   transition: all ease-out 300ms;
 }
+
+#announcer{
+  border: 2px dotted red;
+  width: calc(100% - 50px);
+  margin-top:10px
+}
+

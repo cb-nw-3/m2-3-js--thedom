@@ -18,10 +18,12 @@ main {
 }
 
 .track li:last-child {
+  /* li:last-child { */
   border-bottom: none;
 }
 
 .track li span:first-child {
+  /* li span:first-child { */
   display: flex;
   align-items: center;
   position: absolute;

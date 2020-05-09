@@ -59,11 +59,11 @@ function paraTwo() {
 function theLink() {
   let anchor = document.createElement("a");
   // Create anchor element.
-  let link = document.createTextNode("Source");
+  let link = document.createTextNode("The Source");
   // Create the text node for anchor element.
   anchor.appendChild(link);
   // Append the text node to anchor element.
-  anchor.setAttribute("title", "Source");
+  anchor.setAttribute("title", "Hello");
   // Set the title.
   anchor.setAttribute(
     "href",

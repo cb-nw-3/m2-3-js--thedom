@@ -58,4 +58,6 @@ main {
   position: relative;
   left: 0;
   transition: all ease-out 300ms;
+  /* transform: scaleX(0);
+  transform-origin: right; */
 }

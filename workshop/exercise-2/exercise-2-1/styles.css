@@ -48,8 +48,8 @@ main {
 }
 .frog {
   height: 50px;
-  width: 50px; 
-  background:url(/m2-3-js--thedom/workshop/exercise-2/assets/frogx50.png);
+  width: 50px;
+  background: url(/workshop/exercise-2/assets/frogx50.png);
   color: #fff;
   font-weight: 700;
   display: flex;
@@ -59,6 +59,6 @@ main {
   left: 0;
   transition: all ease-out 300ms;
 }
-p{
+p {
   text-align: center;
 }

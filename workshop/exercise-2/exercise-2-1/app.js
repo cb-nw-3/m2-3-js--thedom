@@ -12,7 +12,7 @@ headHTML.appendChild(cssLink);
 let racers = [];
 let ranking = [];
 
-//starting the race on button instead of automatically
+//start the race when the button is pressed instead of automatically
 const raceBtn = document.querySelector(".raceStart");
 const resetBtn = document.querySelector(".raceReset");
 
@@ -82,8 +82,11 @@ function racingFrog(frog) {
     if (frog.progress >= 95) {
       frog.progress = 100;
       thisFrogHTML.style["left"] = `${frog.progress}%`;
-      if (ranking.push(frog.name) === 3) {
-        raceEnd();
+      ranking.push(frog.name);
+      if (ranking.length >= 3) {
+        setTimeout(function () {
+          raceEnd();
+        }, 350);
       }
       clearInterval(frogIntervalID);
     } else {

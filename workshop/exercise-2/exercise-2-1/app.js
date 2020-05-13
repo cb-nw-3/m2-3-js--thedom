@@ -1,73 +1,76 @@
 // Preset values
 const FROGS = 3;
 
+//                ----- 2.1 Set up the track -----
+for (let i = 1; i <= 3; i++){
 // 1. Create for loop that makes use of FROGS to know how many lanes to create.
-for(let i = 1; i <= FROGS; i++){
-    // 2. Create li
-    let lane = document.createElement('li');
-    // 3. Create span and add it to the li
-    let laneNumber = document.createElement('span');
-    document.getElementById("track").appendChild(lane);
-    lane.appendChild(laneNumber);
-    // 4. Assign an id to each lane
-    lane.setAttribute("id", `lane-${i}`);
-    laneNumber.innerText = `${i}`;
+// 2. Create li    
+// 3. Create span and add it to the li
+// 4. Assign an id to each lane
+let lane = document.createElement("li");
+let laneNum = document.createElement("span");
+laneNum.innerText = i;
+lane.appendChild(laneNum);
+lane.id = `lane-${i}`;
+document.getElementById("track").appendChild(lane);
 }
 
-//2.2
+//                ----- 2.2 Call in the frogs!-----
 let racers = [];
-//Lets add a property called randomNum to each frog object in the stable
-frogStable.forEach(function (object){
-    object.randomNum = Math.random();
+let ranking = [];
+//Let's add a property called randomNum to each frog object
+frogStable.forEach(function(obj){
+    obj.randomNum = Math.random();
 })
-//Sort a new array called frogStableRandom by the values of randomNum 
-let frogStableRandom = frogStable.sort(function(a, b) {
+
+//Sort a new array called randomStable by the values of randomNum
+let randomStable = frogStable.sort(function(a, b) {
     return Number(a.randomNum) - Number(b.randomNum);
 });
 
-//Push frogs to the array racers
+//Push frogs to the array racers until we hace enough
 for(let i = 1; i <= FROGS; i++){
-    racers.push(frogStableRandom[i]);
+    racers.push(randomStable[i-1]);
 }
 console.log(racers);
 
-//2.3
-for(let i = 1; i <= FROGS; i++){
-    let frog = document.createElement('span');
-    document.getElementById(`lane-${i}`).appendChild(frog);
-    frog.setAttribute("class", "frog");
-    frog.setAttribute("id", racers[i-1].name);
-    frog.setAttribute("id", frog);
-    frog.style.background = racers[i-1].color;
-    frog.innerText = `${racers[i-1].number}`;
+//           ----- 2.3 Call in the frogs!-----
+for (let i = 1; i <= FROGS; i++){
+    let frog = document.createElement("span");
+    frog.className = "frog";
+    frog.id = racers[i-1].name;
+    frog.innerText = racers[i-1].number;
+    frog.finished = false;
+    frog.style.backgroundColor = racers[i-1].color;
     racers[i-1].progress = 0;
-    racers[i-1].lane =`${i}`;
-
-    let frogProgress = document.createElement('span');
-    frogProgress.id = racers[i-1].name;
-    document.getElementById(`lane-${i}`).appendChild(frogProgress);
-
+    racers[i-1].lane = i;
+    document.getElementById(`lane-${i}`).appendChild(frog);
 }
-console.log(racers);
 
-//2.4
+//           ----- 2.4 Make 'em hop!-----
 function racingFrog(frog){
+    //random hop length
+    let distance = (Math.floor(Math.random()*100) *100)/(document.getElementById("track").offsetWidth);
     let progress = frog.progress;
-    let width = track.offsetWidth;
-    let hopDistance = ((Math.random() * 100) / width) * 100;
+    //The hopping mecanism
+    let hop = setInterval(function(){
+        progress = progress + distance;
 
-    let bounce = setInterval(function () {
-        progress =progress + hopDistance;
-        if (progress >= 100) {
+        document.querySelector(`#${frog.name}`).style.left = `${progress}%`;
+
+        if(progress >= 100) {
+            clearInterval(hop);
+            ranking.push(frog.name);
+            console.log(`${ranking[ranking.length - 1]} is position number ${ranking.length}`)
+            console.log(`${frog.name} finished!`);
             progress = 100;
-            clearInterval(bounce);
-            console.log(frog.name, "Finished!");
         }
-    
-        document.querySelector(frog.name .frog).style.left = `${progress}%`;
-    }, Math.random() * 1000);
+    }, 500);
 }
 
-racers.forEach(function (frog) {
+racers.forEach(function(frog) {
     racingFrog(frog);
 });
+
+//2.5
+

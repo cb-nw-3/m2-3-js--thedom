@@ -81,9 +81,9 @@ for (let i = 0; i < FROGS; i++) {
 
 function racingFrog(frogObjFromRacersArr, i) {
   // generate a random delay between 200 and 1000 ms
-  let randomDelay = Number((Math.random() * 800).toFixed()) + 200;
+  let randomDelay = Number((Math.random() * 600).toFixed()) + 400;
   // generate a random distance between 2 and 10 %
-  let randomDist = Number((Math.random() * 8).toFixed(2)) + 2;
+  let randomDist = Number((Math.random() * 6).toFixed(2)) + 4;
   // select the frog
   let divFrog = document.querySelector(`#lane-${i + 1} .frog`);
   // initialize progress

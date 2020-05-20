@@ -1,10 +1,19 @@
 // Preset values
 const FROGS = 3;
+const track = document.querySelector('ol');
+const mainDiv = document.querySelector('body');
+let results = document.createElement('p');
 
-// 1. Create for loop that makes use of FROGS to know how many lanes to create.
+for (let i = 1; i <= FROGS; i++){
+    let newLane = document.createElement('li');
+    let spanEl = document.createElement('span');
 
-// 2. Create li
+    
+    spanEl.innerText = `${i}`
+    newLane.id = `lane-${i}`;
 
-// 3. Create span and add it to the li
+    newLane.appendChild(spanEl);
+    track.appendChild(newLane);
+}
 
-// 4. Assign an id to each lane
+mainDiv.appendChild(results);
